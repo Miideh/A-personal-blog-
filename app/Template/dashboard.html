@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+    </head>
+    {% extends "postpage.html" %} 
+{% block content %} 
+    <h1>Admin Dashboard</h1> 
+    <a href="/create">Create New Blog</a> 
+    <ul> 
+        {% for blog in blogs %} 
+            <li> 
+                <a href="/blog/{{ blog['_id'] }}">{{ blog['title'] }}</a> | 
+                <a href="/edit/{{ blog['_id'] }}">Edit</a> | 
+                <a href="/delete/{{ blog['_id'] }}">Delete</a> 
+            </li> 
+        {% endfor %} 
+    </ul> 
+{% endblock %} 
+       
+    
